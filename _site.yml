@@ -6,8 +6,3 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-      
-output:
-  htmldocument:
-    theme: paper
-  
