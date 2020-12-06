@@ -1,8 +1,14 @@
 name: "my-website"
 navbar:
-  title: "My Website"
+  title: "isaid-hi"
   left:
     - text: "Home"
-      href: index.html
+      href: _site/index.html
     - text: "About"
-      href: about.html
+      href: _site/about.html
+     - text: "RMarkdown"
+      href: _site/rmarkdown_example.html
+
+output:
+  html_document:
+    theme: paper
