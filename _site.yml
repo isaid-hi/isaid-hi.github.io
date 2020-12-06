@@ -1,5 +1,4 @@
 name: "my-website"
-output_dir: "."
 navbar:
   title: "My Website"
   left:
@@ -7,7 +6,3 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-
-output:
-  html_document:
-    theme: paper
