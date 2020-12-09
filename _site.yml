@@ -1,14 +1,32 @@
-name: "my-website"
+name: "isaid-hi"
+google_analytics: G-ZSJJV537GB
 navbar:
-  title: "isaid-hi"
+  title: "<img id=\"logo\" style=\"width: 30px;\" src=\"logo-L-text-white.png\" />"
   left:
-    - text: "Home"
+    - text: "Beranda"
       href: index.html
-    - text: "About"
+    - text: "Tentang kami"
       href: about.html
-    - text: "RMarkdown"
-      href: rmarkdown_example.html
-
+    - text: "Data"
+      menu:
+      - text: "Pendidikan Dunia"
+        href: edu_index.html
+    - text: "Artikel"
+      menu:
+      - text: "Psikometri & Statistik"
+        href: psych_stat.html
+      - text: "Microsoft Excel"
+        href: excel.html
+      - text: "Anti Korupsi"
+        href: antikorupsi.html
+      - text: "Lingkungan"
+        href: lingkungan.html
+  right:
+    - text: "CV"
+      href: https://www.canva.com/design/DAEEmWcz1-I/CSch4XFwok9VxFxzwm0iKA/view?utm_content=DAEEmWcz1-I&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/nursahid-assafaat/
+      
 output:
   html_document:
     theme: flatly
