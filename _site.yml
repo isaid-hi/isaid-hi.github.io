@@ -1,7 +1,7 @@
 name: "isaid-hi"
 google_analytics: G-ZSJJV537GB
 navbar:
-  title: "<img id=\"logo\" style=\"width: 50px;\" src=\"logo-L-text-white.png\" />"
+  title: "<img id=\"logo\" style=\"height: 30px;\" src=\"logo-L-text-white.png\" />"
   left:
     - text: "Beranda"
       href: index.html
