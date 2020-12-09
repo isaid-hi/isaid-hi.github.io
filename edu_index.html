@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Nursahid Assafaat" />
+
+
+<title>Data Pendidikan</title>
+
+<script src="site_libs/jquery-3.5.0/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
+<link href="site_libs/highcharts-8.1.2/css/motion.css" rel="stylesheet" />
+<script src="site_libs/highcharts-8.1.2/highcharts.js"></script>
+<script src="site_libs/highcharts-8.1.2/highcharts-3d.js"></script>
+<script src="site_libs/highcharts-8.1.2/highcharts-more.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/stock.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/map.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/annotations.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/data.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/drilldown.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/item-series.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/offline-exporting.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/exporting.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/export-data.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/funnel.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/heatmap.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/treemap.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/sankey.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/dependency-wheel.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/organization.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/solid-gauge.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/streamgraph.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/sunburst.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/vector.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/wordcloud.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/xrange.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/tilemap.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/venn.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/gantt.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/timeline.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/bullet.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/coloraxis.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/dumbbell.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/lollipop.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/series-label.js"></script>
+<script src="site_libs/highcharts-8.1.2/plugins/motion.js"></script>
+<script src="site_libs/highcharts-8.1.2/custom/reset.js"></script>
+<script src="site_libs/highcharts-8.1.2/modules/boost.js"></script>
+<script src="site_libs/highchart-binding-0.8.2/highchart.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img id="logo" style="width: 30px;" src="logo-L-text-white.png" /></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Beranda</a>
+</li>
+<li>
+  <a href="about.html">Tentang kami</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Data
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="edu_index.html">Pendidikan Dunia</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Artikel
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="psych_stat.html">Psikometri &amp; Statistik</a>
+    </li>
+    <li>
+      <a href="excel.html">Microsoft Excel</a>
+    </li>
+    <li>
+      <a href="antikorupsi.html">Anti Korupsi</a>
+    </li>
+    <li>
+      <a href="lingkungan.html">Lingkungan</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://www.canva.com/design/DAEEmWcz1-I/CSch4XFwok9VxFxzwm0iKA/view?utm_content=DAEEmWcz1-I&amp;utm_campaign=designshare&amp;utm_medium=link&amp;utm_source=homepage_design_menu">CV</a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/nursahid-assafaat/">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Data Pendidikan</h1>
+<h4 class="author">Nursahid Assafaat</h4>
+<h4 class="date">12/9/2020</h4>
+
+</div>
+
+
+<div id="pendidikan-per-negara" class="section level3">
+<h3>Pendidikan per Negara</h3>
+<p>Dalam data ini, Indonesia termasuk negara dengan pendidikan yang tertinggal: <div id="htmlwidget-11b4bea7753170e392f3" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-11b4bea7753170e392f3">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"value"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}}},"series":[{"name":"China","data":[{"id":361,"country":"China","value":0.358,"year":1980,"x":1980,"y":0.358},{"id":362,"country":"China","value":0.366,"year":1985,"x":1985,"y":0.366},{"id":363,"country":"China","value":0.406,"year":1990,"x":1990,"y":0.406},{"id":364,"country":"China","value":0.436,"year":1995,"x":1995,"y":0.436},{"id":365,"country":"China","value":0.478,"year":2000,"x":2000,"y":0.478},{"id":366,"country":"China","value":0.531,"year":2005,"x":2005,"y":0.531},{"id":367,"country":"China","value":0.544,"year":2006,"x":2006,"y":0.544},{"id":368,"country":"China","value":0.561,"year":2007,"x":2007,"y":0.561},{"id":369,"country":"China","value":0.59,"year":2009,"x":2009,"y":0.59},{"id":370,"country":"China","value":0.599,"year":2010,"x":2010,"y":0.599},{"id":371,"country":"China","value":0.61,"year":2011,"x":2011,"y":0.61},{"id":372,"country":"China","value":0.61,"year":2012,"x":2012,"y":0.61},{"id":373,"country":"China","value":0.61,"year":2013,"x":2013,"y":0.61}],"type":"line"},{"name":"Germany","data":[{"id":502,"country":"Germany","value":0.59,"year":1980,"x":1980,"y":0.59},{"id":503,"country":"Germany","value":0.6,"year":1985,"x":1985,"y":0.6},{"id":504,"country":"Germany","value":0.646,"year":1990,"x":1990,"y":0.646},{"id":505,"country":"Germany","value":0.739,"year":1995,"x":1995,"y":0.739},{"id":506,"country":"Germany","value":0.787,"year":2000,"x":2000,"y":0.787},{"id":507,"country":"Germany","value":0.858,"year":2005,"x":2005,"y":0.858},{"id":508,"country":"Germany","value":0.872,"year":2006,"x":2006,"y":0.872},{"id":509,"country":"Germany","value":0.875,"year":2007,"x":2007,"y":0.875},{"id":510,"country":"Germany","value":0.879,"year":2009,"x":2009,"y":0.879},{"id":511,"country":"Germany","value":0.879,"year":2010,"x":2010,"y":0.879},{"id":512,"country":"Germany","value":0.884,"year":2011,"x":2011,"y":0.884},{"id":513,"country":"Germany","value":0.884,"year":2012,"x":2012,"y":0.884},{"id":514,"country":"Germany","value":0.884,"year":2013,"x":2013,"y":0.884}],"type":"line"},{"name":"India","data":[{"id":881,"country":"India","value":0.24,"year":1980,"x":1980,"y":0.24},{"id":882,"country":"India","value":0.282,"year":1985,"x":1985,"y":0.282},{"id":883,"country":"India","value":0.311,"year":1990,"x":1990,"y":0.311},{"id":884,"country":"India","value":0.339,"year":1995,"x":1995,"y":0.339},{"id":885,"country":"India","value":0.355,"year":2000,"x":2000,"y":0.355},{"id":886,"country":"India","value":0.409,"year":2005,"x":2005,"y":0.409},{"id":887,"country":"India","value":0.42,"year":2006,"x":2006,"y":0.42},{"id":888,"country":"India","value":0.43,"year":2007,"x":2007,"y":0.43},{"id":889,"country":"India","value":0.445,"year":2009,"x":2009,"y":0.445},{"id":890,"country":"India","value":0.456,"year":2010,"x":2010,"y":0.456},{"id":891,"country":"India","value":0.473,"year":2011,"x":2011,"y":0.473},{"id":892,"country":"India","value":0.473,"year":2012,"x":2012,"y":0.473},{"id":893,"country":"India","value":0.473,"year":2013,"x":2013,"y":0.473}],"type":"line"},{"name":"Indonesia","data":[{"id":868,"country":"Indonesia","value":0.345,"year":1980,"x":1980,"y":0.345},{"id":869,"country":"Indonesia","value":0.392,"year":1985,"x":1985,"y":0.392},{"id":870,"country":"Indonesia","value":0.393,"year":1990,"x":1990,"y":0.393},{"id":871,"country":"Indonesia","value":0.424,"year":1995,"x":1995,"y":0.424},{"id":872,"country":"Indonesia","value":0.521,"year":2000,"x":2000,"y":0.521},{"id":873,"country":"Indonesia","value":0.559,"year":2005,"x":2005,"y":0.559},{"id":874,"country":"Indonesia","value":0.564,"year":2006,"x":2006,"y":0.564},{"id":875,"country":"Indonesia","value":0.565,"year":2007,"x":2007,"y":0.565},{"id":876,"country":"Indonesia","value":0.588,"year":2009,"x":2009,"y":0.588},{"id":877,"country":"Indonesia","value":0.594,"year":2010,"x":2010,"y":0.594},{"id":878,"country":"Indonesia","value":0.603,"year":2011,"x":2011,"y":0.603},{"id":879,"country":"Indonesia","value":0.603,"year":2012,"x":2012,"y":0.603},{"id":880,"country":"Indonesia","value":0.603,"year":2013,"x":2013,"y":0.603}],"type":"line"},{"name":"Korea (Republic of)","data":[{"id":1070,"country":"Korea (Republic of)","value":0.565,"year":1980,"x":1980,"y":0.565},{"id":1071,"country":"Korea (Republic of)","value":0.638,"year":1985,"x":1985,"y":0.638},{"id":1072,"country":"Korea (Republic of)","value":0.679,"year":1990,"x":1990,"y":0.679},{"id":1073,"country":"Korea (Republic of)","value":0.743,"year":1995,"x":1995,"y":0.743},{"id":1074,"country":"Korea (Republic of)","value":0.797,"year":2000,"x":2000,"y":0.797},{"id":1075,"country":"Korea (Republic of)","value":0.837,"year":2005,"x":2005,"y":0.837},{"id":1076,"country":"Korea (Republic of)","value":0.843,"year":2006,"x":2006,"y":0.843},{"id":1077,"country":"Korea (Republic of)","value":0.848,"year":2007,"x":2007,"y":0.848},{"id":1078,"country":"Korea (Republic of)","value":0.856,"year":2009,"x":2009,"y":0.856},{"id":1079,"country":"Korea (Republic of)","value":0.862,"year":2010,"x":2010,"y":0.862},{"id":1080,"country":"Korea (Republic of)","value":0.865,"year":2011,"x":2011,"y":0.865},{"id":1081,"country":"Korea (Republic of)","value":0.865,"year":2012,"x":2012,"y":0.865},{"id":1082,"country":"Korea (Republic of)","value":0.865,"year":2013,"x":2013,"y":0.865}],"type":"line"},{"name":"Malaysia","data":[{"id":1390,"country":"Malaysia","value":0.398,"year":1980,"x":1980,"y":0.398},{"id":1391,"country":"Malaysia","value":0.458,"year":1985,"x":1985,"y":0.458},{"id":1392,"country":"Malaysia","value":0.487,"year":1990,"x":1990,"y":0.487},{"id":1393,"country":"Malaysia","value":0.536,"year":1995,"x":1995,"y":0.536},{"id":1394,"country":"Malaysia","value":0.602,"year":2000,"x":2000,"y":0.602},{"id":1395,"country":"Malaysia","value":0.651,"year":2005,"x":2005,"y":0.651},{"id":1396,"country":"Malaysia","value":0.655,"year":2006,"x":2006,"y":0.655},{"id":1397,"country":"Malaysia","value":0.659,"year":2007,"x":2007,"y":0.659},{"id":1398,"country":"Malaysia","value":0.667,"year":2009,"x":2009,"y":0.667},{"id":1399,"country":"Malaysia","value":0.671,"year":2010,"x":2010,"y":0.671},{"id":1400,"country":"Malaysia","value":0.671,"year":2011,"x":2011,"y":0.671},{"id":1401,"country":"Malaysia","value":0.671,"year":2012,"x":2012,"y":0.671},{"id":1402,"country":"Malaysia","value":0.671,"year":2013,"x":2013,"y":0.671}],"type":"line"},{"name":"Singapore","data":[{"id":1714,"country":"Singapore","value":0.545,"year":1990,"x":1990,"y":0.545},{"id":1715,"country":"Singapore","value":0.58,"year":1995,"x":1995,"y":0.58},{"id":1716,"country":"Singapore","value":0.606,"year":2000,"x":2000,"y":0.606},{"id":1717,"country":"Singapore","value":0.667,"year":2005,"x":2005,"y":0.667},{"id":1718,"country":"Singapore","value":0.684,"year":2006,"x":2006,"y":0.684},{"id":1719,"country":"Singapore","value":0.698,"year":2007,"x":2007,"y":0.698},{"id":1720,"country":"Singapore","value":0.715,"year":2009,"x":2009,"y":0.715},{"id":1721,"country":"Singapore","value":0.759,"year":2010,"x":2010,"y":0.759},{"id":1722,"country":"Singapore","value":0.759,"year":2011,"x":2011,"y":0.759},{"id":1723,"country":"Singapore","value":0.768,"year":2012,"x":2012,"y":0.768},{"id":1724,"country":"Singapore","value":0.768,"year":2013,"x":2013,"y":0.768}],"type":"line"},{"name":"Thailand","data":[{"id":1880,"country":"Thailand","value":0.343,"year":1980,"x":1980,"y":0.343},{"id":1881,"country":"Thailand","value":0.377,"year":1985,"x":1985,"y":0.377},{"id":1882,"country":"Thailand","value":0.386,"year":1990,"x":1990,"y":0.386},{"id":1883,"country":"Thailand","value":0.433,"year":1995,"x":1995,"y":0.433},{"id":1884,"country":"Thailand","value":0.516,"year":2000,"x":2000,"y":0.516},{"id":1885,"country":"Thailand","value":0.569,"year":2005,"x":2005,"y":0.569},{"id":1886,"country":"Thailand","value":0.559,"year":2006,"x":2006,"y":0.559},{"id":1887,"country":"Thailand","value":0.582,"year":2007,"x":2007,"y":0.582},{"id":1888,"country":"Thailand","value":0.601,"year":2009,"x":2009,"y":0.601},{"id":1889,"country":"Thailand","value":0.608,"year":2010,"x":2010,"y":0.608},{"id":1890,"country":"Thailand","value":0.608,"year":2011,"x":2011,"y":0.608},{"id":1891,"country":"Thailand","value":0.608,"year":2012,"x":2012,"y":0.608},{"id":1892,"country":"Thailand","value":0.608,"year":2013,"x":2013,"y":0.608}],"type":"line"},{"name":"United Kingdom","data":[{"id":690,"country":"United Kingdom","value":0.608,"year":1980,"x":1980,"y":0.608},{"id":691,"country":"United Kingdom","value":0.622,"year":1985,"x":1985,"y":0.622},{"id":692,"country":"United Kingdom","value":0.642,"year":1990,"x":1990,"y":0.642},{"id":693,"country":"United Kingdom","value":0.791,"year":1995,"x":1995,"y":0.791},{"id":694,"country":"United Kingdom","value":0.836,"year":2000,"x":2000,"y":0.836},{"id":695,"country":"United Kingdom","value":0.866,"year":2005,"x":2005,"y":0.866},{"id":696,"country":"United Kingdom","value":0.854,"year":2006,"x":2006,"y":0.854},{"id":697,"country":"United Kingdom","value":0.852,"year":2007,"x":2007,"y":0.852},{"id":698,"country":"United Kingdom","value":0.865,"year":2009,"x":2009,"y":0.865},{"id":699,"country":"United Kingdom","value":0.878,"year":2010,"x":2010,"y":0.878},{"id":700,"country":"United Kingdom","value":0.86,"year":2011,"x":2011,"y":0.86},{"id":701,"country":"United Kingdom","value":0.86,"year":2012,"x":2012,"y":0.86},{"id":702,"country":"United Kingdom","value":0.86,"year":2013,"x":2013,"y":0.86}],"type":"line"}],"xAxis":{"type":"linear","title":{"text":"year"},"categories":null}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script> Sumber: <a href="https://data.humdata.org/dataset/0e5412f2-7c17-4ce9-8928-458865c5f7e9/resource/c281edaa-924a-4f3c-928f-e1edfaf3d38a/download/hdi_education_index.csv" class="uri">https://data.humdata.org/dataset/0e5412f2-7c17-4ce9-8928-458865c5f7e9/resource/c281edaa-924a-4f3c-928f-e1edfaf3d38a/download/hdi_education_index.csv</a></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
