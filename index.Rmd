@@ -1,7 +1,20 @@
 ---
-title: "My Website"
+title: "Selamat Datang"
+output: 
+  html_document:
+    css: "margin.css"
+    includes:
+      in_header: GA_Script.html
 ---
 
-Nursahid Assafaat is a final year student in Universitas Al-Azhar Indonesia. He is man with curiousity. A sociel science student who loved math since Junior Highschool.
+<center>
+![](logo-small-text-grey.png){width=20%}
 
-He is currently starting the process of opening the gates of the world of work. He is a warrior and hope for his family, trying independently to rise from difficult economic conditions. He believes that with the right strategy, hard work, and sincere prayer, he can find the path to which there is a purpose in his life, making his parents cry happily with pride. 
+isaid-hi adalah lembaga non pemerintah yang memiliki minat pada sektor pendidikan, lingkungan, dan anti korupsi.
+Saat ini isaid-hi masih dalam proses perintisan dengan rencana jangka panjang dan terbuka untuk bekerja sama dengan siapapun yang memiliki minat yang sama dan tujuan yang baik.
+
+Pengembangan isaid-hi dilakukan di waktu luang, sehingga kami tidak terlalu beharap isaid-hi akan berkembang cepat. Namun demikian, isaid-hi memiliki cita-cita yang besar di masa depan. Diantara cita-cita tersebut, salah satunya di sektor pendidikan adalah mendirikan sebuah akademi yang menjunjung tinggi asas kebebasan belajar yang sebenar-benarnya belajar.
+
+NA
+
+</center>

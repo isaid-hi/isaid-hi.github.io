@@ -1,0 +1,44 @@
+---
+title: "Data Pendidikan"
+author: "Nursahid Assafaat"
+date: "12/9/2020"
+output:
+  html_document:
+    css: "margin.css"
+---
+
+### Pendidikan per Negara
+
+Dalam data ini, Indonesia termasuk negara dengan pendidikan yang tertinggal:
+``` {r, message = FALSE, echo=FALSE}
+library(dplyr)
+library(highcharter)
+edu_index <- 
+  read.csv("https://data.humdata.org/dataset/0e5412f2-7c17-4ce9-8928-458865c5f7e9/resource/c281edaa-924a-4f3c-928f-e1edfaf3d38a/download/hdi_education_index.csv") %>%
+  select(id, country, value, year)
+
+edu_index2 <- 
+  filter(edu_index, country %in% c("Indonesia",
+                                   "Malaysia",
+                                   "Thailand",
+                                   "China",
+                                   "Korea (Republic of)",
+                                   "Singapore",
+                                   "United Kingdom",
+                                   "Germany",
+                                   "India")
+         )
+
+
+edu_index2 %>%
+    hchart(
+        'line',
+        hcaes(x = year,
+              y = value,
+              group = country
+        )
+    )
+
+
+```
+Sumber: https://data.humdata.org/dataset/0e5412f2-7c17-4ce9-8928-458865c5f7e9/resource/c281edaa-924a-4f3c-928f-e1edfaf3d38a/download/hdi_education_index.csv

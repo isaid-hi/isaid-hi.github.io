@@ -1,5 +1,13 @@
 ---
-title: "About This Website"
+title: "Tentang isaid-hi"
+output:
+  html_document:
+    css: "margin.css"
 ---
 
-More about this website.
+isaid-hi didirikan oleh Nursahid Assafaat atas dasar rasa malu. 
+
+Butuh milyaran tahun untuk Bumi agar dapat dihuni, namun 500 tahun terakhir sejak manusia mulai menciptakan alat-alatnya, keadaan Bumi tidak lebih baik, pdahal tidak ada planet yang mau menerima manusia seramah Bumi dengan jamuan-jamuan sumber daya alamnya. 
+Selain konflik dengan alam, manusia juga sering menyakiti satu sama lain. Saking sudah terbiasanya, sampai lupa bahwa kita sama-sama manusia, spesies yang secara biologis begitu lemah, namun satu-satunya spesies yang mampu berfikir secara canggih. 
+
+Maka sebagai cara berterima kasih, Nursahid Assafaat memutuskan menggunakan kecanggihan berfikirnya tersebut untuk menciptakan sebuah jalan damai antar manusia dan juga dengan alam. Jalan tersebut bernama isaid-hi. 

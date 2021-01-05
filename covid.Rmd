@@ -1,0 +1,310 @@
+---
+title: "Data Covid-19 Jawa Barat"
+author: "Nursahid Assafaat"
+date: "12/14/2020"
+output:
+  html_document:
+    css: "margin.css"
+---
+#Data Covid Jawa Barat
+Data di bawah ini didapatkan dari situs resmi pemerintah Jawa Barat (Pikobar) berdasarkan data update harian.
+
+```{r data_covid, echo=FALSE, message=FALSE}
+if(!require("jsonlite")) install.packages("jsonlite")
+if(!require("dplyr")) install.packages("dplyr")
+if(!require("DT")) install.packages("DT")
+if(!require("httr")) install.packages("httr")
+
+# ngambil dari json pikobar
+kab_rekap <- httr::GET(
+  "https://dashboard-pikobar-api.digitalservice.id/v2/sebaran/pertumbuhan?wilayah=kota",
+  config = httr::add_headers(
+    `api-key` = "480d0aeb78bd0064d45ef6b2254be9b3"
+    )
+  )
+json <- httr::content(kab_rekap, as = "text")
+dat <- fromJSON(json)
+df_covid <- 
+  data.frame(
+    `Nama Kab/Kota`=dat[["data"]][["nama_kab"]],
+    `Confirmed Hari Ini`= dat[["data"]][["confirmation"]][["confirmation_total_h1"]],
+    `Confirmed H-7` = dat[["data"]][["confirmation"]][["confirmation_total_h7"]],
+    `Confirmed Total` = dat[["data"]][["confirmation"]][["confirmation_total"]],
+    `Diisolasi Hari Ini`=dat[["data"]][["confirmation"]][["confirmation_diisolasi_h1"]],
+    `Diisolasi H-7`=dat[["data"]][["confirmation"]][["confirmation_diisolasi_h7"]],
+    `Diisolasi Total`=dat[["data"]][["confirmation"]][["confirmation_diisolasi"]],
+    `Selesai Hari Ini`=dat[["data"]][["confirmation"]][["confirmation_selesai_h1"]],
+    `Selesai H-7`=dat[["data"]][["confirmation"]][["confirmation_selesai_h7"]],
+    `Selesai Total`=dat[["data"]][["confirmation"]][["confirmation_selesai"]],
+    `Meninggal Hari Ini`=dat[["data"]][["confirmation"]][["confirmation_meninggal_h1"]],
+    `Meninggal H-7`=dat[["data"]][["confirmation"]][["confirmation_meninggal_h7"]],
+    `Meninggal Total`=dat[["data"]][["confirmation"]][["confirmation_meninggal"]]
+    )
+
+
+# Capitalize each word kolom kab kota
+library(stringr)
+df_covid[,1] <- str_to_title(df_covid$Nama.Kab.Kota)
+
+```
+
+```{r table, echo=F, message=F, warning=FALSE}
+## Buat tabel di reactable
+library(reactable)
+library(hrbrthemes)
+
+## Bar chart
+library(htmltools)
+bar_chart <- 
+  function(label, width = "100%", height = "13px", fill = "#5dc9b9", background = NULL) {
+    bar <- 
+      div(style = list(background = fill, width = width, height = height))
+    chart <- 
+      div(style = list(flexGrow = 1, marginLeft = "6px", background = background), bar)
+    div(style = list(display = "flex", alignItems = "center"), label, chart)
+  }
+
+# reactable tabel
+reactable(
+  df_covid,
+  searchable = TRUE,
+  striped = TRUE,
+  compact = TRUE,
+  pagination = FALSE,
+  defaultColDef = colDef(
+    headerStyle = list(
+      fontSize = "14px",
+      lineHeight = "14px",
+      color = "#0c0c0c",
+      fontWeight = "bold",
+      borderBottom = "2px solid #e9edf0",
+      paddingBottom = "3px",
+      verticalAlign = "bottom",
+      fontFamily = font_pub
+    ),
+    style = list(
+      fontFamily = "monospace",
+      fontSize = "12px",
+      verticalAlign = "center",
+      color = "#363636"
+    ),
+    footerStyle = list(
+      fontWeight = "bold",
+      color = "#363636",
+      fontSize = "14px",
+      fontFamily = font_pub
+    )
+  ),
+  columns = list(
+    Nama.Kab.Kota =
+      colDef(
+        name = "Kab/Kota",
+        footer = "Total",
+        width = 120,
+        style = list(fontFamily = windowsFont('Segoe UI'), color = "#4a4a4a", fontSize = "12px")
+      ),
+    Confirmed.Hari.Ini =
+      colDef(
+        name = toString(Sys.Date()),
+        footer = format(sum(df_covid$Confirmed.Hari.Ini),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID")
+      ),
+    Confirmed.H.7 =
+      colDef(
+        name = "H-7",
+        footer = format(sum(df_covid$Confirmed.H.7),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID"),
+        width = 50
+      ),
+    Confirmed.Total =
+      colDef(
+        name = "Total",
+        cell = function(value) {
+          width <- paste0(value * 100 / max(df_covid$Confirmed.Total), "%")
+          value <- format(value, big.mark = ",")
+          # Fix each label using the width of the widest number (incl. thousands separators)
+          value <- format(value, width = 9, justify = "right")
+          bar_chart(value, width = width, fill = "#e8602a")
+        },
+        align = "left",
+        # Use the operating system's default monospace font, and
+        # preserve white space to prevent it from being collapsed by default
+        style = list(fontFamily = "monospace", whiteSpace = "pre", color = "#4a4a4a", fontSize = "12px"),
+        footer = format(sum(df_covid$Confirmed.Total),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID"),
+        width = 120
+      ),
+    Diisolasi.Hari.Ini =
+      colDef(
+        name = toString(Sys.Date()),
+        footer = format(sum(df_covid$Diisolasi.Hari.Ini),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID"),
+        width = 90
+      ),
+    Diisolasi.H.7 =
+      colDef(
+        name = "H-7",
+        footer = format(sum(df_covid$Diisolasi.H.7),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID"),
+        width = 50
+      ),
+    Diisolasi.Total =
+      colDef(
+        name = "Total",
+        cell = function(value) {
+          width <- paste0(value * 100 / max(df_covid$Diisolasi.Total), "%")
+          value <- format(value, big.mark = ",")
+          # Fix each label using the width of the widest number (incl. thousands separators)
+          value <- format(value, width = 9, justify = "right")
+          bar_chart(value, width = width, fill = "#28c0de")
+        },
+        align = "left",
+        # Use the operating system's default monospace font, and
+        # preserve white space to prevent it from being collapsed by default
+        style = list(fontFamily = "monospace", whiteSpace = "pre", color = "#4a4a4a", fontSize = "12px"),
+        footer = format(sum(df_covid$Diisolasi.Total),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID"),
+        width = 120
+      ),
+    Selesai.Hari.Ini =
+      colDef(
+        name = toString(Sys.Date()),
+        footer = format(sum(df_covid$Selesai.Hari.Ini),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID"),
+        width = 90
+      ),
+    Selesai.H.7 =
+      colDef(
+        name = "H-7",
+        footer = format(sum(df_covid$Selesai.H.7),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID"),
+        width = 50
+      ),
+    Selesai.Total =
+      colDef(
+        name = "Total",
+        cell = function(value) {
+          width <- paste0(value * 100 / max(df_covid$Diisolasi.Total), "%")
+          value <- format(value, big.mark = ",")
+          # Fix each label using the width of the widest number (incl. thousands separators)
+          value <- format(value, width = 9, justify = "right")
+          bar_chart(value, width = width, fill = "#42e3c8")
+        },
+        align = "left",
+        # Use the operating system's default monospace font, and
+        # preserve white space to prevent it from being collapsed by default
+        style = list(fontFamily = "monospace", whiteSpace = "pre", color = "#4a4a4a", fontSize = "12px"),
+        footer = format(sum(df_covid$Selesai.Total),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID"),
+        width = 120
+      ),
+    Meninggal.Hari.Ini =
+      colDef(
+        name = toString(Sys.Date()),
+        footer = format(sum(df_covid$Meninggal.Hari.Ini),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID"),
+        width = 90
+      ),
+    Meninggal.H.7 =
+      colDef(
+        name = "H-7",
+        footer = format(sum(df_covid$Meninggal.H.7),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID"),
+        width = 50
+      ),
+    Meninggal.Total =
+      colDef(
+        name = "Total",
+        cell = function(value) {
+          width <- paste0(value * 100 / max(df_covid$Diisolasi.Total), "%")
+          value <- format(value, big.mark = ",")
+          # Fix each label using the width of the widest number (incl. thousands separators)
+          value <- format(value, width = 9, justify = "right")
+          bar_chart(value, width = width, fill = "#28144f")
+        },
+        align = "left",
+        # Use the operating system's default monospace font, and
+        # preserve white space to prevent it from being collapsed by default
+        style = list(fontFamily = "monospace", whiteSpace = "pre", color = "#4a4a4a", fontSize = "12px"),
+        footer = format(sum(df_covid$Meninggal.Total),big.mark=".",trim=TRUE),
+        format = colFormat(separators = TRUE, locales = "id-ID"),
+        width = 100
+      )
+  ),
+  columnGroups = list(
+    colGroup(name = "Terkonfirmasi", columns = c("Confirmed.Hari.Ini","Confirmed.H.7","Confirmed.Total")),
+    colGroup(name = "Isolasi", columns = c("Diisolasi.Hari.Ini","Diisolasi.H.7","Diisolasi.Total")),
+    colGroup(name = "Selesai", columns = c("Selesai.Hari.Ini","Selesai.H.7","Selesai.Total")),
+    colGroup(name = "Meninggal", columns = c("Meninggal.Hari.Ini","Meninggal.H.7","Meninggal.Total"))
+  )
+)
+```
+
+<hr>
+
+```{r data-kum, echo=F, message=F}
+kab_kum <- httr::GET(
+  "https://dashboard-pikobar-api.digitalservice.id/v2/kasus/mingguan?wilayah=kota",
+  config = httr::add_headers(
+    `api-key` = "480d0aeb78bd0064d45ef6b2254be9b3"
+  )
+)
+json2 <- httr::content(kab_kum, as = "text")
+dat2 <- jsonlite::fromJSON(json2)
+
+library(dplyr)
+
+```
+
+```{r plot-kum, echo=F, message=F}
+if(!require("highcharter")) install.packages("highcharter")
+
+# rapikan data dulu
+library(dplyr)
+dat2 <-
+  dat2[["data"]][["series"]] %>%
+    bind_rows() %>%
+    as.data.frame()
+
+mingguan <- dat2$mingguan
+colnames(mingguan) <- c("mingguan_diisolasi","mingguan_ratarata","mingguan_selesai","mingguan_total","mingguan_meninggal")
+growth <- dat2$growth
+colnames(growth) <- c("growth_diisolasi","growth_selesai","growth_total","growth_meninggal")
+kumulatif <- dat2$kumulatif
+colnames(kumulatif) <- c("kumulatif_diisolasi","kumulatif_selesai","kumulatif_total","kumulatif_meninggal")
+
+dat2 <-
+  cbind(dat2[,c(1,7,2,3)],mingguan,growth,kumulatif,dat2[,9])
+
+colnames(dat2)[18] <- "minggu"
+
+dat2[,2] <-
+  stringr::str_to_title(dat2$nama_kab)
+
+# buat plot kumulatif
+library(highcharter)
+library(data.table)
+
+top8 <-
+  dat2 %>% #ambil top 10
+    group_by(nama_kab) %>%
+    slice(which.max(as.Date(minggu))) %>%
+    ungroup() %>%
+    top_n(8, kumulatif_total) %>%
+    select(nama_kab) %>%
+    unlist()
+  
+dat2 %>%
+  filter(nama_kab %in% top8) %>%
+  hchart(
+    'line',
+    hcaes(x = minggu,y = kumulatif_total,group = nama_kab)
+  ) %>%
+  hc_title(text = "8 Kota/Kab Kasus Tertinggi", align = "center") %>%
+  hc_xAxis(text = "Timeline Waktu", align = "center") %>%
+  hc_yAxis(text = "Total Kasus", align = "center") %>%
+  hc_plotOptions(line = list(
+    marker = FALSE
+  ))
+```
+
