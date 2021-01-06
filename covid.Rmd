@@ -5,6 +5,8 @@ date: "12/14/2020"
 output:
   html_document:
     css: "margin.css"
+    includes:
+      in_header: GA_Script.html
 ---
 #Data Covid Jawa Barat
 Data di bawah ini didapatkan dari situs resmi pemerintah Jawa Barat (Pikobar) berdasarkan data update harian.

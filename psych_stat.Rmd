@@ -5,5 +5,7 @@ date: "12/9/2020"
 output:
   html_document:
     css: "margin.css"
+    includes:
+      in_header: GA_Script.html
 ---
 Belum tersedia.

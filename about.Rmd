@@ -3,6 +3,8 @@ title: "Tentang isaid-hi"
 output:
   html_document:
     css: "margin.css"
+    includes:
+      in_header: GA_Script.html
 ---
 
 isaid-hi didirikan oleh Nursahid Assafaat atas dasar rasa malu. 
