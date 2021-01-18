@@ -22,6 +22,11 @@ navbar:
         href: antikorupsi.html
       - text: "Lingkungan"
         href: lingkungan.html
+    - text: "Penelitian"
+      menu:
+      - text: "Hasil IPIP-BFM-50"
+        href: hasil-survey.html
+      
   right:
     - text: "CV"
       href: https://www.canva.com/design/DAEEmWcz1-I/CSch4XFwok9VxFxzwm0iKA/view?utm_content=DAEEmWcz1-I&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu
