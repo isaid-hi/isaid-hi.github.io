@@ -21,11 +21,12 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9C8F5E6S9K"></script>
 <script>
@@ -91,7 +92,6 @@ h6 {
 </style>
 
 
-<link rel="stylesheet" href="margin.css" type="text/css" />
 
 
 
@@ -272,6 +272,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -279,6 +342,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -356,7 +429,7 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="https://www.linkedin.com/in/nursahid-assafaat/">
-    <span class="fas fa-linkedin fa-lg"></span>
+    <span class=" LinkedIn"></span>
      
   </a>
 </li>
@@ -376,13 +449,55 @@ $(document).ready(function () {
 </div>
 
 
+<div id="survey" class="section level2">
+<h2>Survey</h2>
+<p>Survey ini adalah bagian dari penelitian skripsi penulis yang berjudul <strong>Validitas Prediktif Data Twitter sebagai Prediktor Kepribadian Big-Five</strong>.</p>
+<div id="kepribadian-dan-twitter" class="section level3">
+<h3>Kepribadian dan Twitter</h3>
+<p>Dewasa ini, kepribadian mulai dapat diprediksi oleh Twitter. Salah satu penelitian mengenai hal ini dilakukan oleh Kosinski (2013). Dalam penelitian tersebut, data likes facebook dapat digunakan untuk memprediksi usia, status merokok, agama, dan beberapa trait lainnya.</p>
+</div>
+<div id="tujuan-penelitian" class="section level3">
+<h3>Tujuan Penelitian</h3>
+<p>Fenomena tersebut menarik untuk diteliti, terutama mengenai “seberapa akurat prediksi tersebut?”. Selain ketertarikan pada kemampuan model statistik yang menggunakan data Twitter untuk memprediksi kepribadian, peneliti -yang juga terinspirasi dari Kosinski- berharap bahwa dengan melakukan penelitian ini, penulis dapat membangun kesadaran netijen (user) bahwa jejak digital kita dapat digunakan untuk memprediksi kepribadian kita. Segala aktifitas yang kita lakukan di sosial media, dapat memberikan informasi mengenai diri kita.</p>
 <hr />
-<p>Mohon maaf, ada gangguan sehingga hasil survey belum dapat dipublish. Hasil survey akan tersedia tanggal 19 Januari 2020.</p>
-<p>Salam, NA</p>
+</div>
+</div>
+<div id="hasil" class="section level2">
+<h2>Hasil</h2>
+<div id="akurasi" class="section level3">
+<h3>Akurasi</h3>
+<p>Akurasi, dalam psikologi biasa dikenal dengan istilah validitas dan reliabilitas alat tes. Survey ini didasarkan pada kuesioner <a href="https://projects.ori.org/lrg/PDFs_papers/Goldberg.Big-Five-Markers-Psych.Assess.1992.pdf">IPIP-BFM-40</a> yang dikembangkan oleh Goldberg. Diketahui bahwa kuesioner tersebut memiliki akurasi yang baik.</p>
+<p>Hanif Akhtar dan Saifuddin Azwar (2019), melakukan <a href="https://jurnal.ugm.ac.id/jpsi/article/download/33571/24215">adaptasi bahasa dan budaya Indonesia dari kuesioner IPIP-BFM-50</a>. Dalam penelitian ini juga diterangkan bahwa akurasinya terbilang baik.</p>
+<p>Namun jangan berharap bahwa hasil yang ditunjukkan pada penelitian Saya adalah hasil yang 100% akurat. Penelitian ini memang tidak selengkap tes psikologi berbayar yang menyajikan data secara komprehensif. Salah satu alasannya adalah desain penelitian yang lebih fokus pada korelasi hasil kuesioner dengan prediksi kepribadian oleh data Twitter pengetahuan. Alasan lainnya karena kapasitas kemampuan dan pengetahuan penulis yang masih dalam tahap belajar. Walau demikian, Saya berusaha sebaik mungkin menjaga kaidah ilmiah dalam penelitian ini</p>
+</div>
+<div id="cara-cek-hasil" class="section level3">
+<h3>Cara cek hasil</h3>
+<p>Berikut ini cara melihat hasil skor Anda:</p>
+<ol style="list-style-type: decimal">
+<li><p>Buka aplikasi penampil hasil kuesioner ini <a href="https://isaid-hi.shinyapps.io/hasil-kuesioner-ipipbfm50/?_ga=2.71727125.769089319.1610991942-154121231.1610991942">di sini</a></p></li>
+<li><p>Setelah masuk ke aplikasi, silakan masukkan kode unik anda <img src="images/1-kode-unik.PNG" /></p></li>
+<li><p>Klik submit <img src="images/2-submit.PNG" /></p></li>
+<li><p>Setelah selesai melihat hasil, klik terminate untuk menutup aplikasi <img src="images/4-terminate.PNG" /></p></li>
+</ol>
 <hr />
+</div>
+</div>
+<div id="perlu-diingat" class="section level2">
+<h2>Perlu diingat!</h2>
+<div id="keterbatasan-waktu" class="section level3">
+<h3>Keterbatasan waktu</h3>
+<p>Aplikasi penampil hasil kuesioner yang saya buat adalah versi gratis sehingga pemakaiannya dikenakan batas waktu. Maka dari itu, mohon bijaksana dalam menggunakannya, serta mohon untuk menutup aplikasi dengan klik “Terminate” atau tutup browser setelah selesai melihat hasil.</p>
+</div>
+<div id="data-tidak-lengkap" class="section level3">
+<h3>Data tidak lengkap</h3>
+<p>Bisa jadi kode yang Anda masukkan sudah benar, namun aplikasi membacanya sebagai error. Bila demikian silakan hubungi Saya melalui <a href="nursyahid.zanky@gmail.com">email</a></p>
+</div>
+</div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -415,6 +530,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
